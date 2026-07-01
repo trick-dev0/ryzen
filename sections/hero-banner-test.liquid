@@ -1,23 +1,54 @@
-<div class="minha-secao">
-  <h2>{{ section.settings.heading }}</h2>
-  <p>{{ section.settings.text }}</p>
-</div>
+{{ 'component-tilte-test.css' | asset_url | stylesheet_tag }}
+
+<section id="container">
+  <div class="container">
+    <div class="box">
+      <h1 class="tex">{{ section.settings.title-banner }}</h1>
+    </div>
+    <div class="box">
+      {% if section.settings.imagem-banner%}
+          <img src="{{ section.settings.imagem-banner | image_url: width: 400 }}">
+        {% else %}
+          <p>Image is here later???</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+<style>
+  #container {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    max-width: 1220px;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+  }
+
+  .box {
+    width: 100%;
+  }
+</style>
 
 {% schema %}
-{
-  "name": "Minha Seção",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Título",
-      "default": "Título da Seção"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Minha Seção"
-    }
-  ]
-}
+  {
+    "name": "Banner Principal",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title-banner",
+        "label": "Titulo do banner",
+        "default": "Add to text here!!!"
+      }, {
+        "type": "image_picker",
+        "id": "imagem-banner",
+        "label": "Imagem do banner",
+      }
+    ]
+  }
 {% endschema %}

@@ -1,0 +1,11 @@
+.titleMac{
+    font-size: 60px;
+    color: rgb(223, 23, 9);
+    font-weight: 900;
+}
+
+.minha-secao{
+    background-color: cornflowerblue;
+    max-width: 400px;
+    max-height: 400px;
+}
