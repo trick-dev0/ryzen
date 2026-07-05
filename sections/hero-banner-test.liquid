@@ -1,13 +1,18 @@
 {{ 'component-tilte-test.css' | asset_url | stylesheet_tag }}
 
-<section id="container">
-  <div class="container">
+<section id="container" style="background-color: {{section.settings.background_color}};">
+  <div class="banner-custom">
     <div class="box">
-      <h1 class="tex">{{ section.settings.title-banner }}</h1>
+      <h1 class="title-banner">{{ section.settings.title-banner }}</h1>
+      <P>TEXT</P>
+      <div>
+        <span>button 1</span>
+        <span>button 2</span>
+      </div>
     </div>
     <div class="box">
       {% if section.settings.imagem-banner%}
-          <img src="{{ section.settings.imagem-banner | image_url: width: 400 }}">
+          <img src="{{ section.settings.imagem-banner | img_url: width: 400 }}">
         {% else %}
           <p>Image is here later???</p>
       {% endif %}
@@ -16,14 +21,14 @@
 </section>
 
 
-<style>
+{% comment %} <style>
   #container {
-    background-color: aquamarine;
+    background-color: rgb(235, 128, 28);
     display: flex;
     justify-content: center;
   }
 
-  .container {
+  .banner-custom {
     max-width: 1220px;
     width: 100%;
     padding: 0 20px;
@@ -33,18 +38,57 @@
   .box {
     width: 100%;
   }
-</style>
+</style> {% endcomment %}
+{%  stylesheet  %} 
+  #container{
+    display: flex;
+    justify-content: center;
+  }
+
+  .banner-custom {
+    max-width: 1220px;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+  }
+{% endstylesheet %}
+
+{% style %}
+  #container{
+    background-color: {{section.settings.background_color}}
+  }
+
+  .title-banner{
+    font-size: {{ section.settings.size-title-banner }}px;
+  }
+{% endstyle %}
 
 {% schema %}
   {
     "name": "Banner Principal",
     "settings": [
       {
+        "type": "color",
+        "id": "background_color",
+        "label": "Backgorund color"
+      },
+      {
         "type": "text",
         "id": "title-banner",
         "label": "Titulo do banner",
         "default": "Add to text here!!!"
-      }, {
+      }, 
+      {
+        "type": "range",
+        "id": "size-title-banner",
+        "label": "Tamanho da fonte",
+        "min": 16,
+        "max": 72,
+        "step": 2,
+        "unit": "px",
+        "default": 32
+      },
+      {
         "type": "image_picker",
         "id": "imagem-banner",
         "label": "Imagem do banner",
