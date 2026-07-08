@@ -5,14 +5,18 @@
     <div class="box">
       <h1 class="title-banner">{{ section.settings.title-banner }}</h1>
       <P class="description-banner">Aliquam vel platea curabitur sit vestibulum egestas sit id lorem. Aliquet neque, dui sed eget scelerisque. Non at at venenatis tortor amet feugiat ullamcorper in. Odio vulputate cras vel lacinia turpis volutpat adipiscing. Sollicitudin at velit, blandit tempus nunc in.</P>
-      <div>
-        <div class="button-banner-1">Get Started</div>
-        <div class="button-banner-2">Watch Video</div>
+      <div class="buttons">
+        <div class="divs-butons">
+          {% render 'botao-azul' %}
+        </div>
+        <div class="divs-butons">
+          <a class="button-banner-2"><img src="{{ 'Vector-png.png' | asset_url }}" class="svg-play-azul"> Watch Video</a>
+        </div>
       </div>
     </div>
     <div class="box-image">
       {% if section.settings.imagem-banner%}
-          <img src="{{ section.settings.imagem-banner | image_url: width: 600 }}" class="image-banner">
+        <img src="{{ section.settings.imagem-banner | image_url: width: 600 }}" class="image-banner"> 
         {% else %}
           <p>Image is here later???</p>
       {% endif %}
@@ -29,7 +33,7 @@
   .banner-custom {
     max-width: 1220px;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 20px 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,23 +51,24 @@
     margin: 24px 0;
   }
 
-  .button-banner-1{
-    background-color: #2563EB;
-    color: #fff;
-    padding: 15px 35px;
-    font-size: 18px;
-    border-radius: 8px;
-    margin-right: 10px;
-  }
-
   .button-banner-2{
-    color: #2563EB;;
-    padding: 15px 35px;
+    color: #2563EB;
+    padding: 13px 35px;
     font-size: 18px;
     border-radius: 8px;
-    margin-right: 10px;
+    max-width: 245px;
+    width: 100%;
   }
 
+  .buttons{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .divs-butons{
+    width: auto;
+    flex-wrap: nowrap;
+  }
 
   @media (max-width:1023px) {
   .banner-custom {
@@ -95,9 +100,17 @@
   }
 
   @media (max-width: 767px) {
-  .title-banner{
-    font-size: {{ section.settings.size-title-banner-mobile }}px;
-  }
+    .title-banner{
+      font-size: {{ section.settings.size-title-banner-mobile }}px;
+    }
+
+    .buttons{
+      justify-content: center;
+    }
+
+    .button-banner-2{
+      font-size: 14px;
+    }
 }
 {% endstyle %}
 
