@@ -1,0 +1,34 @@
+<div class="card">
+  <img src="{{ section.settings.image-card | image_url: width: 100 }}" alt="image card">
+  <h3>{{ section.settings.title-card }}</h3>
+  <p>{{ section.settings.description-card }}</p>
+</div>
+
+{% stylesheet %}
+
+{% endstylesheet %}
+
+{% schema %}
+{
+    "name": "Bloco de card",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "imagem-card",
+            "label": "Imagem do card",
+        },
+        {
+            "type": "text",
+            "id": "title-card",
+            "label": "Titulo do card",
+            "default": "Add to text here!!!"
+        },
+        {
+            "type": "text",
+            "id": "description-card",
+            "label": "Descrição do card",
+            "default": "Add to text here!!!"
+        }
+    ]
+}
+{% endschema %}

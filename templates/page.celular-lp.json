@@ -1,8 +1,11 @@
 {
   "sections": {
     "hero-banner": {
-      "type": "hero-banner-test",
+      "type": "hero-banner-test"
+    },
+    "beneficios": {
+      "type": "uvps-lp-test"
     }
   },
-  "order": ["hero-banenr"]
+  "order": ["hero-banner", "beneficios"]
 }

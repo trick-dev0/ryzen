@@ -1,0 +1,64 @@
+<section id="container">
+  <div class="container-cards-beneficios">
+    {% for block in section.blocks %}
+      <div class="card">
+        <img src="{{ block.settings.imagem-card | image_url: width: 100}}" alt="">
+        <h3>{{ block.settings.title-card }}</h3>
+        <p>
+          {{ block.settings.description-card }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+{% stylesheet %}
+  #container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-cards-beneficios {
+    max-width: 1220px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 395px;
+    text-align: center;
+    padding: 0 30px;
+  }
+{% endstylesheet %}
+
+{% schema %}
+  {
+    "name": "uvps",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "card-home-item",
+        "name": "Cards de beneficios",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "imagem-card",
+            "label": "Imagem do card"
+          }, {
+            "type": "text",
+            "id": "title-card",
+            "label": "Titulo do card",
+            "default": "Add to text here!!!"
+          }, {
+            "type": "text",
+            "id": "description-card",
+            "label": "Descrição do card",
+            "default": "Add to text here!!!"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
