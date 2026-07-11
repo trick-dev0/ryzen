@@ -1,34 +1,41 @@
-<div class="card">
-  <img src="{{ section.settings.image-card | image_url: width: 100 }}" alt="image card">
-  <h3>{{ section.settings.title-card }}</h3>
-  <p>{{ section.settings.description-card }}</p>
+<div class="card" {{ block.shopify_attributes }}>
+  <img src="{{ block.settings.imagem_card | image_url: width: 100 }}" alt="image card">
+  <h3>{{ block.settings.title_card }}</h3>
+  <p>{{ block.settings.description_card }}</p>
 </div>
 
 {% stylesheet %}
-
+  .card {
+    max-width: 395px;
+    text-align: center;
+    padding: 0 30px;
+  }
 {% endstylesheet %}
 
 {% schema %}
-{
+  {
     "name": "Bloco de card",
     "settings": [
-        {
-            "type": "image_picker",
-            "id": "imagem-card",
-            "label": "Imagem do card",
-        },
-        {
-            "type": "text",
-            "id": "title-card",
-            "label": "Titulo do card",
-            "default": "Add to text here!!!"
-        },
-        {
-            "type": "text",
-            "id": "description-card",
-            "label": "Descrição do card",
-            "default": "Add to text here!!!"
-        }
+      {
+        "type": "image_picker",
+        "id": "imagem_card",
+        "label": "Imagem do card"
+      }, {
+        "type": "text",
+        "id": "title_card",
+        "label": "Titulo do card",
+        "default": "Add to text here!!!"
+      }, {
+        "type": "text",
+        "id": "description_card",
+        "label": "Descrição do card",
+        "default": "Add to text here!!!"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Bloco de card"
+      }
     ]
-}
+  }
 {% endschema %}
