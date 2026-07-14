@@ -4,7 +4,31 @@
       "type": "hero-banner-test"
     },
     "beneficios": {
-      "type": "uvps-lp-test"
+      "type": "uvps-lp-test",
+      "blocks": {
+        "card_1":{
+          "type": "card-home-item", 
+          "settings": {
+            "title_card": "frete grátis",
+            "description_card": "Entregamos para todo o Brasil"
+          }
+        },
+        "card_2":{
+          "type": "card-home-item", 
+          "settings": {
+            "title_card": "frete grátis 4",
+            "description_card": "Entregamos para todo o Brasil"
+          }
+        },
+        "card_3":{
+          "type": "card-home-item", 
+          "settings": {
+            "title_card": "frete grátis",
+            "description_card": "Entregamos para todo o Brasil 6"
+          }
+        }
+      },
+      "block_order": ["card_1", "card_2", "card_3"]
     }
   },
   "order": ["hero-banner", "beneficios"]
