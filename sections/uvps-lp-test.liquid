@@ -18,10 +18,10 @@
     justify-content: center;
     align-items: center;
   }
-  @media (max-width:1023px){
-    .container-cards-beneficios{
+  @media (max-width: 1023px) {
+    .container-cards-beneficios {
       flex-direction: column;
-    }  
+    }
   }
 {% endstylesheet %}
 
@@ -31,7 +31,22 @@
     "settings": [],
     "blocks": [
       {
-        "type": "@theme"
+        "type": "card-home-item",
+        "name": "Section de 3 UVP's"
+      }
+    ],
+    "presets": [
+      {
+        "name": "UVP Preset",
+        "blocks": [
+          {
+            "type": "Section de 3 UVP'",
+            "settings": {
+              "title_card": "title test preset",
+              "description_card": "Descrição de exemplo"
+            }
+          }
+        ]
       }
     ]
   }

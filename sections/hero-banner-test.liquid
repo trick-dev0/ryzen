@@ -15,17 +15,17 @@
       </div>
     </div>
     <div class="box-image">
-      {% if section.settings.imagem-banner%}
-        <img src="{{ section.settings.imagem-banner | image_url: width: 600 }}" class="image-banner"> 
-        {% else %}
-          <p>Image is here later???</p>
+      {% if section.settings.imagem-banner %}
+        <img src="{{ section.settings.imagem-banner | image_url: width: 600 }}" class="image-banner">
+      {% else %}
+        <p>Image is here later???</p>
       {% endif %}
     </div>
   </div>
 </section>
 
-{%  stylesheet  %} 
-  #container{
+{% stylesheet %}
+  #container {
     display: flex;
     justify-content: center;
   }
@@ -39,19 +39,20 @@
     justify-content: center;
   }
 
-  .box, .box-image{
+  .box,
+  .box-image {
     max-width: 100%;
   }
 
-  .title-banner{
+  .title-banner {
     font-weight: 900;
   }
 
-  .description-banner{
+  .description-banner {
     margin: 24px 0;
   }
 
-  .button-banner-2{
+  .button-banner-2 {
     color: #2563EB;
     padding: 13px 35px;
     font-size: 18px;
@@ -60,58 +61,56 @@
     width: 100%;
   }
 
-  .buttons{
+  .buttons {
     display: flex;
     align-items: center;
     gap: 16px;
   }
-  .divs-butons{
+  .divs-butons {
     width: auto;
     flex-wrap: nowrap;
   }
 
-  @media (max-width:1023px) {
-  .banner-custom {
-    flex-direction: column;
+  @media (max-width: 1023px) {
+    .banner-custom {
+      flex-direction: column;
+    }
+
+    .box {
+      text-align: center;
+    }
+
+    .image-banner {
+      max-width: 100%;
+      width: 100%;
+    }
   }
 
-  .box{
-    text-align: center;
-  }
-
-  .image-banner{
-    max-width: 100%;
-    width: 100%;
-  }
-}
-
-  @media (max-width: 767px) {
-
-}
+  @media (max-width: 767px) {}
 {% endstylesheet %}
 
 {% style %}
-  #container{
-    background-color: {{section.settings.background_color}}
+  #container {
+    background-color: {{ section.settings.background_color }}
   }
 
-  .title-banner{
+  .title-banner {
     font-size: {{ section.settings.size-title-banner }}px;
   }
 
   @media (max-width: 767px) {
-    .title-banner{
+    .title-banner {
       font-size: {{ section.settings.size-title-banner-mobile }}px;
     }
 
-    .buttons{
+    .buttons {
       justify-content: center;
     }
 
-    .button-banner-2{
+    .button-banner-2 {
       font-size: 14px;
     }
-}
+  }
 {% endstyle %}
 
 {% schema %}
@@ -128,7 +127,7 @@
         "id": "title-banner",
         "label": "Titulo do banner",
         "default": "Add to text here!!!"
-      }, 
+      },
       {
         "type": "range",
         "id": "size-title-banner",
@@ -148,11 +147,10 @@
         "step": 2,
         "unit": "px",
         "default": 32
-      },
-      {
+      }, {
         "type": "image_picker",
         "id": "imagem-banner",
-        "label": "Imagem do banner",
+        "label": "Imagem do banner"
       }
     ]
   }
