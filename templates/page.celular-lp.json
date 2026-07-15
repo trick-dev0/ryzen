@@ -56,10 +56,14 @@
         "card_3"
       ],
       "settings": {}
+    },
+    "wallpaper_section":{
+      "type": "wallpaper_section"
     }
   },
   "order": [
     "hero-banner",
-    "beneficios"
+    "beneficios",
+    "wallpaper_section"
   ]
 }
